@@ -9,16 +9,39 @@
 </head>
 <body>
     
-    <!-- the button and count display block -->
+    <!-- the button and count display block (using addeventlistener) -->
     <div id="div" >I am a div</div>
     <button id="button"> Click Me! </button>
+
+     <!-- the button and count display block (using on-event) -->
+     <div id="div1" >I am a div1</div>
+     <button id="button1" onclick="validateClicks2()"> Click Me1! </button>
 
     <!-- set page theme toggle button -->
 
     <button id="theme-btn"> Dark Theme! </button>
 
+    <!-- keyboard events -->
 
+    <input name="sample-name" type="text" id="input" />
+
+    <span id="caps-span"></span>
+
+    <p id="user-input" >  </p>
+
+
+    <script src="script2.js" ></script>
     <script src="script.js" ></script>
+
+
+    <!-- <script>
+
+        function validateClicks2 () {
+            console.log("I am internal js");
+        } 
+
+    </script> -->
+
 
 </body>
 </html>

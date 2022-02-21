@@ -18,6 +18,8 @@
 // document.getElementsByClassName
 // document.getElementsByName
 // document.getElementsByTagName
+// document.querySelector
+// document.querySelectorAll
 
 // to get the text content of let's say a h1 tag
 
@@ -36,9 +38,9 @@
 let numberOfClicks = 0;
 
 function validateClicks () {
-    numberOfClicks++;
+    numberOfClicks--;
     
-    if(numberOfClicks > 3){
+    if(numberOfClicks < 0){
         alert("Can't click more");
         return;
     }
@@ -54,6 +56,7 @@ function validateClicks () {
 let btn = document.getElementById("button")
 
 btn.addEventListener('click', validateClicks);
+// btn.addEventListener('mouseover', validateClicks);
 
 
 
@@ -77,3 +80,50 @@ function changeTheme () {
 let themeButton = document.getElementById("theme-btn");
 
 themeButton.addEventListener('click', changeTheme);
+
+
+// having two const in sesparate script ....
+
+let inputElement = document.getElementById('input');
+
+
+// keypress event detects alpha-numeric, space, enter, etc. but not alt, ctl, caps keys.
+// keydown event is triggered on any key press.
+
+
+// inputElement.addEventListener('keypress', updateUserInput)
+inputElement.addEventListener('keydown', updateUserInput)
+
+
+function updateUserInput (event) {
+
+    // code 20 is keycode for capslock button
+    if(event.keyCode === 20) {
+        showCapsOnWarning();
+    }
+
+    let userInputBox = document.getElementById("user-input")
+    userInputBox.innerText = inputElement.value;    // value works for input elements
+}
+
+// keyboard event - keydown 
+
+
+function showCapsOnWarning ( ) {
+    let isCapsOn = document.getElementById('caps-span').innerText.includes('on');
+
+    if(isCapsOn) {
+        document.getElementById('caps-span').innerText = '';
+        return;
+    }
+    document.getElementById('caps-span').innerText = 'Caps is on';
+    return;
+}
+
+
+// you can attach listeners on document as well as window
+
+// window.addEventListener('keydown', showCapsOnWarning);
+
+
+// document.removeEventListener('keydown', updateUserInput)
